@@ -1,0 +1,474 @@
+/* ============================================================
+   global.css
+   Shared styles loaded by EVERY page on the site.
+   Edit colours here to change the look of the whole site.
+   ============================================================ */
+
+
+/* ------------------------------------------------------------
+   COLOUR VARIABLES
+   Change these values to retheme the entire site instantly.
+   ------------------------------------------------------------ */
+:root {
+  --bg:#080e20;   /* Page background — very dark navy             */
+  --surface:#111111;   /* Section/panel background — slightly lighter  */
+  --surface-alt:#202020;   /* Alternate panel — used inside forms          */
+  --header-bg:#000000;   /* Header colour — change this to retheme header*/
+  --footer-bg:#000000;   /* Footer colour — change this to retheme footer*/
+  --accent:#00ff37;   /* LEGO yellow — buttons, headings, borders     */
+  --accent-red:#005e1c;   /* LEGO red — card top borders                  */
+  --text: #e6edf3;   /* Main text — off-white                        */
+  --text-dark:#000000;   /* Dark text — used on yellow backgrounds       */
+  --muted: #8b949e;   /* Secondary text — grey                        */
+  --border:#000000;   /* Border lines — dark blue-grey                */
+}
+
+
+/* ------------------------------------------------------------
+   BASE RESET
+   ------------------------------------------------------------ */
+* {
+  box-sizing: border-box; /* Include padding and border in element width */
+}
+
+body {
+  margin: 0;                                  /* Remove browser's default white gap */
+  font-family: 'Courier New', monospace;
+  background-color: var(--bg);               /* Solid very dark navy — no pattern */
+  color: var(--text);                        /* Default off-white text */
+  min-height: 100vh;                         /* Page fills at least the full screen height */
+  display: flex;                             /* Flexbox so footer stays at bottom */
+  flex-direction: column;                    /* Stack children top to bottom */
+}
+
+main {
+  width: 100%;            /* Fill available width */
+  max-width: 1200px;      /* Never wider than 1200px */
+  margin: 0 auto;         /* Centre horizontally */
+  padding: 1.5rem 1.25rem 3rem; /* Top / sides / bottom spacing */
+}
+
+section {
+  margin-top: 1.5rem;                /* Gap above each section */
+  background-color: var(--surface); /* Dark panel background */
+  border: 1px solid var(--border);  /* Thin border around panel */
+  padding: 1.5rem;                  /* Space inside the panel */
+}
+
+
+/* ------------------------------------------------------------
+   HEADINGS AND TEXT
+   ------------------------------------------------------------ */
+h1 {
+  font-size: 2rem;          /* Large main heading */
+  color: var(--accent);     /* Accent Colour */
+  letter-spacing: 0.04em;   /* Slight character spacing */
+  margin-top: 0;            /* Remove browser default top margin */
+}
+
+h2 {
+  font-size: 1.4rem;        /* Section heading */
+  color: var(--accent);     /* LEGO yellow */
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 0;            /* Card / sub-section heading */
+  color: var(--text);       /* Off-white — not yellow like h1/h2 */
+}
+
+p {
+  line-height: 1.7;         /* Comfortable reading spacing (170% of font size) */
+  color: var(--muted);      /* Soft grey text */
+}
+
+a {
+  color: var(--accent);     /* Yellow links */
+}
+
+a:hover {
+  color: #ffffff;           /* White on hover */
+}
+
+
+/* ------------------------------------------------------------
+   HEADER
+   Change --header-bg in :root to update the header colour.
+   ------------------------------------------------------------ */
+.site-header {
+  position: sticky;                          /* Sticks to top when page scrolls */
+  top: 0;                                    /* Position at the very top */
+  z-index: 20;                               /* Sits above all page content */
+  background-color: var(--header-bg);       /* Black — set by --header-bg variable */
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;                  /* Space inside: top/bottom then sides */
+  display: flex;                             /* Logo and nav in one row */
+  align-items: center;                       /* Vertically centre both */
+  justify-content: space-around;           /* Logo left, nav right */
+  gap: 1rem;                                 /* Minimum space between logo and nav */
+  border-bottom: 3px solid var(--accent);   /* LEGO yellow underline */
+}
+
+.logo {
+  display: flex;             /* Image and text sit side by side */
+  align-items: center;       /* Vertically centre them */
+  gap: 0.65rem;              /* Space between image and text */
+  color: var(--accent);      /* Yellow brand text */
+  text-decoration: none;     /* No underline on the link */
+  font-weight: 900;          /* Extra bold */
+  font-size: 1.05rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase; /* ALL CAPS */
+}
+
+.logo img {
+  width: 40px;   /* Fixed logo image size */
+  height: 40px;
+}
+
+.site-header nav {
+  display: flex;      /* Desktop/tablet: links are always visible in a row */
+  flex-wrap: wrap;    /* Wrap to next line on narrow screens */
+  gap: 0.4rem;        /* Gap between each link */
+}
+
+.site-header nav a {
+  color: #cccccc;                  /* Light grey link text */
+  text-decoration: none;
+  padding: 0.45rem 0.85rem;        /* Clickable area around text */
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border: 1px solid transparent;  /* Invisible border — prevents jumping on hover */
+}
+
+.site-header nav a:hover,
+.site-header nav a:focus {
+  background-color: var(--accent); /* Yellow fill on hover */
+  color: var(--text-dark);         /* Black text on yellow */
+}
+
+.site-header nav a.active {
+  background-color: var(--accent); /* Active page also gets yellow fill */
+  color: var(--text-dark);
+}
+
+
+/* ------------------------------------------------------------
+   MOBILE HAMBURGER MENU
+   The checkbox and label let the menu open/close without JavaScript.
+   The icon image is img/icon.png.
+   ------------------------------------------------------------ */
+.menu-toggle,
+.menu-button {
+  display: none; /* Hidden on desktop screens */
+}
+
+.menu-button {
+  align-items: center;
+  gap: 0.45rem;
+  margin-left: auto;
+  background-color: var(--surface-alt);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 0.45rem 0.7rem;
+  font-weight: 800;
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu-button img {
+  width: 28px;
+  height: 28px;
+  display: block;
+}
+
+.menu-button:hover,
+.menu-button:focus {
+  background-color: var(--accent);
+  color: var(--text-dark);
+}
+
+.menu-toggle:focus-visible + .menu-button {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+}
+
+
+/* ------------------------------------------------------------
+   FOOTER
+   Change --footer-bg in :root to update the footer colour.
+   ------------------------------------------------------------ */
+footer {
+  margin-top: auto;                          /* Push footer to bottom of page */
+  background-color: var(--footer-bg);       /* Black — set by --footer-bg variable */
+  border-top: 3px solid var(--accent);      /* LEGO yellow top line */
+  color: var(--muted);
+  text-align: center;
+  padding: 1.5rem 1rem;
+}
+
+footer p {
+  margin: 0.3rem 0;     /* Tight vertical spacing */
+  font-size: 0.9rem;
+}
+
+footer a {
+  color: var(--accent); /* Yellow links in footer */
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+
+/* ------------------------------------------------------------
+   HERO SECTION — two-column layout: text | image
+   Used on: index.html, about.html, products.html
+   ------------------------------------------------------------ */
+.hero {
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);  /* Bold yellow left edge */
+  padding: 2rem 1.5rem;
+  display: grid;                          /* Two-column grid */
+  grid-template-columns: 1.25fr 1fr;    /* Text wider than image */
+  gap: 1.5rem;
+  align-items: center;                   /* Vertically centre columns */
+}
+
+.hero h1 { margin: 0 0 0.75rem; }  /* Remove top margin, add bottom gap */
+.hero h2 { margin: 0 0 0.75rem; }
+.hero p  { margin: 0; }
+
+.hero img {
+  width: 100%;                        /* Fill its column */
+  border: 2px solid var(--accent);   /* Yellow image border */
+}
+
+
+/* ------------------------------------------------------------
+   CARD GRID — three equal columns
+   Used on: index.html, about.html, products.html
+   ------------------------------------------------------------ */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.card {
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--accent-red); /* Red top accent */
+  padding: 1rem;
+}
+
+.card h3 {
+  color: var(--accent);       /* Yellow card heading */
+  margin-bottom: 0.45rem;
+  font-size: 1rem;
+}
+
+.card p { margin: 0; }
+
+
+/* ------------------------------------------------------------
+   BUTTONS AND ACTION ROW
+   Used on: checkout.html, contact.html
+   ------------------------------------------------------------ */
+.actions {
+  display: flex;    /* Put buttons side by side */
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1rem;
+}
+
+button {
+  border: none;
+  padding: 0.75rem 1.25rem;
+  font-weight: 700;
+  cursor: pointer;             /* Hand cursor to show it's clickable */
+  font-size: 0.9rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+button[type="submit"] {
+  background-color: var(--accent); /* Yellow submit button */
+  color: var(--text-dark);         /* Black text on yellow */
+}
+
+button[type="reset"] {
+  background-color: var(--surface-alt); /* Dark reset button */
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+button:hover,
+button:focus {
+  background-color: #ffffff; /* White on hover */
+  color: var(--text-dark);
+}
+
+
+/* ------------------------------------------------------------
+   FORMS
+   Used on: checkout.html, contact.html
+   ------------------------------------------------------------ */
+form {
+  background-color: var(--surface-alt);
+  border: 1px solid var(--border);
+  padding: 1.25rem;
+}
+
+fieldset {
+  border: 1px solid var(--border);  /* Box around field group */
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+}
+
+legend {
+  font-weight: 700;
+  color: var(--accent);            /* Yellow group title */
+  padding: 0 0.4rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-size: 0.9rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two-column field layout */
+  gap: 0.9rem;
+}
+
+.field-group {
+  display: flex;
+  flex-direction: column; /* Label sits above input */
+}
+
+.field-group label {
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--text);
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  font-size: 1rem;
+  background-color: var(--bg); /* Match page background */
+  color: var(--text);
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+  outline: none;                   /* Remove default browser outline */
+  border-color: var(--accent);    /* Yellow border on focus */
+}
+
+.field-group textarea {
+  min-height: 100px;
+  resize: vertical; /* User can drag to resize height only */
+}
+
+.full {
+  grid-column: 1 / -1; /* Span all columns in the grid */
+}
+
+
+/* ------------------------------------------------------------
+   RESPONSIVE — layout changes for smaller screens
+   ------------------------------------------------------------ */
+@media (max-width: 900px) {
+  /* Tablet: reduce columns from 3/4 to 2 */
+  .card-grid    { grid-template-columns: repeat(2, 1fr); }
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 761px) {
+  /* Desktop/tablet: always show the navigation links as normal header links. */
+  .site-header {
+    flex-wrap: nowrap;
+  }
+
+  .menu-toggle,
+  .menu-button {
+    display: none !important; /* The hamburger controls are only for mobile view. */
+  }
+
+  .site-header nav {
+    display: flex !important; /* Prevents the nav from staying hidden outside mobile view. */
+    width: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  /* Phone: hide the nav inside the hamburger menu until the button is tapped. */
+  .site-header {
+    position: sticky;   /* Keep the compact mobile header visible while scrolling */
+    flex-direction: row;
+    flex-wrap: wrap;    /* Nav can drop underneath when opened */
+    align-items: center;
+  }
+
+  .logo {
+    max-width: calc(100% - 120px); /* Leaves room for the menu button */
+  }
+
+  .menu-toggle {
+    display: block;
+    position: absolute;
+    opacity: 0;         /* Keeps it accessible but visually hidden */
+    width: 1px;
+    height: 1px;
+  }
+
+  .menu-button {
+    display: flex;      /* Show the icon button only on mobile */
+  }
+
+  .site-header nav {
+    display: none;      /* Mobile only: menu starts closed behind the hamburger button */
+    width: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0.45rem;
+    padding-top: 0.75rem;
+  }
+
+  .menu-toggle:checked ~ nav {
+    display: flex;      /* Mobile only: menu opens when the checkbox is checked */
+  }
+
+  .site-header nav a {
+    width: 100%;
+    flex: none;
+    text-align: left;
+  }
+
+  .hero,
+  .form-grid,
+  .card-grid,
+  .product-grid {
+    grid-template-columns: 1fr; /* Single column */
+  }
+
+  h1 { font-size: 1.5rem; } /* Smaller heading on phones */
+}
+  

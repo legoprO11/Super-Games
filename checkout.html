@@ -1,0 +1,229 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="description" content="Super Game's Webpage.">
+    <title>Super Games | Checkout</title>
+    <link rel="stylesheet" href="css\global.css">
+    <link rel="stylesheet" href="css\checkout.css">
+</head>
+<body>
+    <header class="site-header">
+        <a class="logo" href="index.html">
+            <img src="img/Logo.png" alt="super games logo">
+            <span>Super Games</span>
+        </a>
+        <!-- MOBILE MENU TOGGLE: shown on mobile only; desktop/tablet keep the normal
+        navigation visible -->
+        <input class="menu-toggle" type="checkbox" id="menu-toggle" aria-label="Toggle
+        navigation menu">
+        <label class="menu-button" for="menu-toggle">
+        <img src="img/MenuButton.png" alt="" aria-hidden="true">
+        <span>Menu</span>
+        </label>
+        <nav aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="products.html">Products</a>
+        <a class="active" href="checkout.html">Checkout</a> 
+        <a href="contact.html">Contact</a>
+        </nav>
+    </header>
+    <main>
+
+        <!-- PAGE INTRO -->
+        <section>
+            <h1>Checkout</h1>
+            <p>
+                Fill in your details and hit Submit. No server is connected in this assessment.
+            </p>
+        </section>
+    
+        <!-- CHECKOUT FORM -->
+        <section>
+            <form action="#" method="post">
+                <!-- action="#" means no server; method="post" sends data in request body -->
+    
+                <!-- FIELDSET 1: Account details -->
+                <fieldset>
+                    <legend>Gamer Details</legend>
+    
+                    <div class="form-grid">
+    
+                        <div class="field-group">
+                            <label for="username">Gamer Tag</label>
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="e.g. RebelPilot42"
+                                required
+                            >
+                        </div>
+    
+                        <div class="field-group">
+                            <label for="email">Email Address</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="your@gameremail.com"
+                                required
+                            >
+                        </div>
+    
+                        <div class="field-group">
+                            <label for="password">Password</label>
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                required
+                            >
+                            <!-- type="password" hides characters as typed -->
+                        </div>
+    
+                        <div class="field-group">
+                            <label for="confirm_password">Confirm Password</label>
+                            <input
+                                type="password"
+                                id="confirm_password"
+                                name="confirm_password"
+                                required
+                            >
+                        </div>
+    
+                    </div>
+                </fieldset>
+    
+                <!-- FIELDSET 2: Personal details -->
+                <fieldset>
+                    <legend>Tag Identification</legend>
+    
+                    <div class="form-grid">
+    
+                        <div class="field-group">
+                            <label for="first_name">First Name</label>
+                            <input type="text" id="first_name" name="first_name" required>
+                        </div>
+    
+                        <div class="field-group">
+                            <label for="last_name">Last Name</label>
+                            <input type="text" id="last_name" name="last_name" required>
+                        </div>
+                    </div>
+                </fieldset>
+    
+                <!-- FIELDSET 3: Shipping address -->
+                <fieldset>
+                    <legend>Delivery</legend>
+    
+                    <div class="form-grid">
+    
+                        <div class="field-group full">
+                            <label for="street">Street Address</label>
+                            <input type="text" id="street" name="street" required>
+                        </div>
+    
+                        <div class="field-group">
+                            <label for="suburb">Suburb</label>
+                            <input type="text" id="suburb" name="suburb" required>
+                        </div>
+    
+                        <div class="field-group">
+                            <label for="postcode">Postcode</label>
+                            <input
+                                type="text"
+                                id="postcode"
+                                name="postcode"
+                                pattern="[0-9]{4}"
+                                placeholder="4 digits"
+                                required
+                            >
+                            <!-- Validates exactly 4 digits -->
+                        </div>
+    
+                        <div class="field-group">
+                            <label for="state">State</label>
+                            <select id="state" name="state" required>
+                                <option value="">Select state…</option>
+                                <option value="VIC">VIC</option>
+                                <option value="NSW">NSW</option>
+                                <option value="QLD">QLD</option>
+                                <option value="WA">WA</option>
+                                <option value="SA">SA</option>
+                                <option value="TAS">TAS</option>
+                                <option value="ACT">ACT</option>
+                                <option value="NT">NT</option>
+                            </select>
+                        </div>
+    
+                        <div class="field-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required>
+                            <!-- Shows numeric keypad on mobile -->
+                        </div>
+    
+                        <div class="field-group full">
+                            <label for="order_notes">Order Notes (optional)</label>
+                            <textarea
+                                id="order_notes"
+                                name="order_notes"
+                                placeholder="e.g. Please pack carefully — displaying next to my Millennium Falcon"
+                                ></textarea>
+                            <!-- Optional field -->
+                        </div>
+                            
+                        <div class="field-group full">
+                            <span>Shipping Type</span>
+    
+                            <div class="inline-options">
+                                <!-- Radio buttons: only one selectable -->
+                                <label>
+                                    <input type="radio" name="faction" value="empire" required>
+                                    Delivery
+                                </label>
+    
+                                <label>
+                                    <input type="radio" name="faction" value="rebel">
+                                    Collect
+                                </label>
+    
+                                <label>
+                                    <input type="radio" name="faction" value="neutral">
+                                    Digital Download
+                                </label>
+                            </div>
+                        </div>
+    
+                    </div>
+                </fieldset>
+    
+                <!-- ACTION BUTTONS -->
+                <div class="actions">
+                    <button type="submit">Order</button>
+                    <button type="reset">Leave Game</button>
+                </div>
+    
+            </form>
+        </section>
+    
+    </main>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+<footer>
+    <p>&copy; 2026 Super Games</p>
+</footer>
+</html>

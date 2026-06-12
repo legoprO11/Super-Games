@@ -1,0 +1,10 @@
+.note {
+    background-color: #0e1628; /* Dark note box background */
+    border-left: 4px solid var(--accent); /* Yellow left stripe */
+    border-radius: 0 8px 8px 0; /* Right corners only rounded */
+    padding: 0.85rem 1rem;
+    margin-top: 1.25rem;
+    font-size: 0.9rem;
+    color: var(--muted); /* Soft grey text */
+    line-height: 1.6;
+    }

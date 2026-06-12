@@ -1,0 +1,12 @@
+.inline-options {
+    display: flex; /* Radio buttons in a row */
+    flex-wrap: wrap; /* Wrap to next line if needed */
+    gap: 0.8rem;
+    margin-top: 0.4rem;
+    }
+.inline-options label {
+    font-weight: 400; /* Normal weight — lighter than form labels */
+    margin: 0;
+    color: var(--muted);
+    cursor: pointer; /* Hand cursor shows it's clickable */
+    }

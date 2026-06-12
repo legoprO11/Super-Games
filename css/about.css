@@ -1,0 +1,4 @@
+.about-hero img {
+    object-fit: cover; /* Crop image to fill box — no stretching */
+    max-height: 320px; /* Cap portrait photo height */
+    }

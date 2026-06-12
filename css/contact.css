@@ -1,0 +1,6 @@
+.contact-details {
+    font-family: monospace; /* Fixed-width font — like a terminal */
+    font-size: 0.95rem;
+    color: var(--accent); /* LEGO yellow */
+    margin-top: 0.5rem;
+    }
